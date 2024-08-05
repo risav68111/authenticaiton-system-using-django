@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        label, button {
+            margin-left: 1rem;
+            padding: 1rem;
+            font-size: 1.4rem;
+        }
+        input {
+            margin-bottom: 1rem;
+            padding: .5rem;
+        }
+    </style>
+</head>
+<body>
+    <h2>sign up</h2>
+    {{ message }}
+    <form action="{% url 'signup' %}" method="post">    
+        {% csrf_token %}
+        <label for="username">User Name</label>
+        <input type="text" name="username" id="username" class="username" placeholder="Enter User Name" required>
+        <br>
+        <label for="">First Name</label>
+        <input type="text" name="firstname" id="firstname" class="firstname" placeholder="Enter First Name">
+        <br>
+        <label for="">Last Name</label>
+        <input type="text" name="lastname" id="lastname" class="lastname" placeholder="Enter Last Name">
+        <br>
+        <label for="">email</label>
+        <input type="email" name="email" id="email" class="email" placeholder="Enter email">
+        <br>
+        <label for=""> Password</label>
+        <input type="password" name="password1" id="password1" class="password" required>
+        <br>
+        <label for="">Re Enter Password</label>
+        <input type="password" name="password2" id="password2" class="password" required>
+        <br>
+        <button type="submit"> Sign Me Up</button>
+         
+    </form>
+
+    <script src=""async defer> </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+a {
+    font-size: 18px;
+    color: red;
+    padding: 2rem;
+    font-style: none;
+    
+}
+body {
+    background-color: rgba(77, 192, 221, 0.308);
+    display: flex;
+    align-items: center;
+}
