@@ -13,10 +13,21 @@ def signup(request):
         password1= request.POST['password1']
         password2= request.POST['password2']
 
+        if User.objects.filter(username=username).exists():
+            messages.error(request, f"UserName: {username} already exists")
+            return redirect("signup")
+        
+        if User.objects.filter(email= email).exists():
+            messages.error(requset, f"Email already exists")
+            return redirect("signup")
+        if password1!= password2 :
+            message.error(request, f"Password not matched")
+            return redirect("signup")
+
         myuser= User.objects.create_user(username, email, password1)
         myuser.first_name= firstname
         myuser.last_name= lastname
-
+        
         myuser.save()
         
         messages.success(request, "Account has been created successfully.")
@@ -38,7 +49,7 @@ def signin(request):
             login(request, user)
             return render(request, 'authen\index.html', {'firstname': firstname})
         else:
-            message= f"User with {username} does not exist <br />"
+            message= f"User with \"{username}\" does not exist"
             messages.error(request, "bad credentials")
             return render(request,'authen/signup.html', {'message': message})
 
